@@ -1,0 +1,135 @@
+<html>
+<head>
+	<style>
+		nav {
+	background-color: #E64A19;
+}
+ 
+nav ul {
+	padding: 0;
+    margin: 0;
+	list-style: none;
+	position: relative;
+	}
+	
+nav ul li {
+	display:inline-block;
+	background-color: #E64A19;
+	}
+ 
+nav a {
+	display:block;
+	padding:0 10px;	
+	color:#FFF;
+	font-size:20px;
+	line-height: 60px;
+	text-decoration:none;
+}
+ 
+nav a:hover { 
+	background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+}
+
+
+
+/* Hide Dropdowns by Default */
+nav ul ul {
+	display: none;
+	position: absolute; 
+	top: 60px; /* the height of the main nav */
+}
+	
+/* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+	display:inherit;
+}
+	</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="#">Home</a></li>
+            <li><a href="#">Scholarships</a>
+            <!-- First Tier Drop Down -->
+            <ul>
+                <li><a href="#">Scholarships in India</a></li>
+                <li><a href="#">Scholarships in USA</a></li>
+                <li><a href="#">Scholarships in Europe</a></li>
+                <li><a href="#">Scholarships in Canada</a></li>
+                <li><a href="#">Scholarships in Singapore</a></li>
+                <li><a href="#">Scholarships in Australia</a></li>
+                <li><a href="#">Scholarships in UK</a></li>
+            </ul>        
+            </li>
+
+            <li><a href="#">Exams</a>
+        	<!-- First Tier Drop Down -->
+        	<ul>
+        		<li><a href="#">GATE</a>
+         		<!-- First Tier Drop Down -->
+        		<ul>
+        			<li><a href="#">Aerospace Engineering            AE</a></li>
+        			<li><a href="#">Agricultural Engineering         AG</a></li>
+        			<li><a href="#">Architecture and Planning        AR</a></li>
+        			<li><a href="#">Biotechnology                    BT</a></li>
+        			<li><a href="#">Civil Engineering                CE</a></li>
+        			<li><a href="#">Chemical Engineering             CH</a></li>
+        			<li><a href="#">Computer Science and 
+        			                Information Technology           CS</a></li>
+        			<li><a href="#">Chemistry                        CY</a></li>
+        			<li><a href="#">Electronics and 
+        			                Communication Engineering        EC</a></li>
+        			<li><a href="#">Electrical Engineering           EE</a></li>
+        			<li><a href="#">Ecology and Evolution            EY</a></li>
+        			<li><a href="#">Geology and Geophysics           GG</a></li>
+        			<li><a href="#">Instumental Engineering          IN</a></li>
+        		    <li><a href="#">Mathematics                      MA</a></li>
+        		    <li><a href="#">Mechanical Engineering           ME</a></li>
+        		    <li><a href="#">Mining Engineering               MN</a></li>
+        		    <li><a href="#">Metallurgical Engineering        MT</a></li>
+        		    <li><a href="#">Petroleum Engineering            PE</a></li>
+        		    <li><a href="#">Physics                          PH</a></li>
+        		    <li><a href="#">Production and Industrail 
+        		                    Engineering                      PI</a></li>
+        		    <li><a href="#">Textile Engineering and
+        		                    Fibre Science                    TF</a></li>
+        		    <li><a href="#">Engineering Sciences             XE</a></li>
+        		    <li><a href="#">Life Sciences                    XL</a></li>
+        		    
+        		</ul>
+        	    </li>
+
+                <li><a href="#">GRE</a></li>
+                <li><a href="#">CAT</a></li>
+                <li><a href="#">GMAT</a></li>
+                <li><a href="#">TOEFL</a></li>
+                <li><a href="#">IELTS</a></li>
+            </ul>
+            </li>
+
+            <li><a href="#">Degrees</a>
+            <!-- First Tier Drop Down -->
+            <ul>
+            	<li><a href="#">M.tech</a></li>
+            	<li><a href="#">MS(by research)</a></li>
+            	<li><a href="#">Direct PhD></a></li>
+            	<li><a href="#">PhD></a></li>
+            	<li><a href="#">Project Associate (JRF, SRF)</a></li>
+            </ul>
+            </li>
+
+            <li><a href="#">Application Procedure</a>
+            <!-- First Tier Drop Down -->
+            <ul>
+            	<li><a href="#">Statement of Purpose (SOP)</a></li>
+            	<li><a href="#">Research Proposal(RP)</a></li>
+            	<li><a href="#">Letter of Recommendation(LOR)</a></li>
+            	<li><a href="#">Curriculum Vitae(CV)</a></li>
+            	<li><a href="#">Other Documents</a></li>
+            </ul>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

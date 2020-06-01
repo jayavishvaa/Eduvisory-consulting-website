@@ -1,0 +1,72 @@
+.loginPage {
+    font-family: sans-serif;
+    
+}
+ 
+ h1 {
+     text-align: center;
+ }
+
+ form {
+     
+     justify-content: center;
+     align-items: center;
+     max-width: 500px;
+     width: 100%;
+     margin: 0 auto;
+ }
+
+ label,
+ input {
+     display: block;
+     width: 100%;
+ }
+
+ label {
+     margin-bottom: 5px;
+     font-weight: bold;
+     height: 22px;
+ }
+
+ input {
+     padding: 10px;
+     margin-bottom: 20px;
+     border-radius: 3px;
+     border: 1px solid #777;
+ }
+
+
+ input.error {
+     border-color: red;
+ }
+
+ .input-error {
+     color: red;
+     margin-top: -15px;
+     font-size: 14px;
+     margin-bottom: 20px;
+
+ }
+
+button {
+    padding: 10px 15px;
+    color: white;
+    background-color: rgb(70, 153, 179);
+    border: 1px solid rgb(70, 153, 179);
+    background-color: 250ms;
+} 
+
+button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: rgb(70, 153, 179);
+
+}
+
+.antd-input {
+    padding-left: 60px;
+    padding-right: 60px;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 5px;
+}
