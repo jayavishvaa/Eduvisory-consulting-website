@@ -4,13 +4,14 @@ import { Formik } from 'formik';
 import {Input,DatePicker} from 'antd';
 import 'antd/dist/antd.css';
 import Countrydropdown from './dropdown/countryDropdown';
+import PhoneInput from '../components/phoneInput';
 
 
 
 
 const ValidatedSignup = () => (
   <Formik
-    initialValues={{firstname:"",middlename:"",lastname:"",institution:"",phonenumber:"",city:"",country:"",dateofbirth:"",email:"",password:""}}
+    initialValues={{firstname:"",middlename:"",lastname:"",phonenumber:"",city:"",country:"",dateofbirth:"",username:"",email:"",password:"",confirmpassword:""}}
     onSubmit = {(values,{setSubmiiting}) => {
       setTimeout(() => {
         console.log('submitting',values);
@@ -21,12 +22,10 @@ const ValidatedSignup = () => (
     validationSchema={Yup.object().shape({
       firstname: Yup.string()
       .required('First Name cannot be Empty'),
-      middlename: Yup.string()
-      .required('Middle Name cannot be Empty'),
+      middlename: Yup.string(),
+
       lastname: Yup.string()
       .required('Last Name cannot be Empty'),  
-      institution: Yup.string()
-      .required('Institution cannot be Empty'),
       phonenumber: Yup.number()
       .required('Phone Number cannot be Empty'),
       country: Yup.string()
@@ -38,10 +37,17 @@ const ValidatedSignup = () => (
       email: Yup.string()
       .email()
       .required('Email can not be Empty'),
+      username: Yup.string()
+      .required('Username cannot be Empty'), 
       password: Yup.string()
       .required('password can not be Empty')
       .min(8,'Password is too short -- should contain 8 characters minimum')
       .matches(/(?=.*[0-9])/,'Password must contain a number') 
+      .max(25,'Password mustnot exceed 25 characters') 
+      .matches(/[A-Z ]+/,'password must contain an uppercase'),
+      confirmpassword: Yup.string()
+      .required()
+      .oneOf([Yup.ref('password'), null], "Password did not match")
     })}
   >
 
@@ -62,12 +68,14 @@ const ValidatedSignup = () => (
       function onChange(date, dateString) {
         console.log(date, dateString);
       }
+
+
       
 
 
       return(
         <form onSubmit={handleSubmit}>
-          <label htmlFor="firstname"> Firstname</label>
+          <label htmlFor="firstname"> Firstname </label>
           <Input
             name="firstname"
             placeholder="Enter your Firstname"
@@ -111,22 +119,18 @@ const ValidatedSignup = () => (
             <div className="input-error" >{errors.lastname}</div>
           )}
           </div>
-
-
+          
           <label htmlFor="phonenumber"> phonenumber</label>
-          <Input
-            name="phonenumber"
-            placeholder="Enter your Phonenumber"
-            value={values.phonenumber}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className={errors.phonenumber && touched.phonenumber && 'error'}
-          /> 
+          <PhoneInput
+             className={errors.phonenumber && touched.phonenumber && 'error'}
+          />
+
           <div style={{paddingTop:20}}>
           {errors.phonenumber && touched.phonenumber && (
             <div className="input-error" >{errors.phonenumber}</div>
           )}
           </div>
+
 
           <Countrydropdown 
             className={errors.country && touched.country && 'error'}
@@ -169,8 +173,23 @@ const ValidatedSignup = () => (
           )}
           </div>
 
+          <label htmlFor="username"> Username</label>
+          <Input
+            name="username"
+            placeholder="Enter your Username"
+            value={values.username}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={errors.username && touched.username && 'error'}
+          /> 
+          <div style={{paddingTop:20}}>
+          {errors.username && touched.username && (
+            <div className="input-error" >{errors.username}</div>
+          )}
+          </div>
 
-          <label htmlFor="email">Password</label>
+
+          <label htmlFor="password">Password</label>
           <Input.Password 
             name="password"
             placeholder="Enter your Password"
@@ -181,6 +200,20 @@ const ValidatedSignup = () => (
           <div style={{paddingTop:20}}>  
           {errors.password && touched.password && (
             <div className="input-error" >{errors.password}</div>
+          )}
+          </div>
+
+          <label htmlFor="cofirmpassword">ConfirmPassword</label>
+          <Input.Password 
+            name="confirmpassword"
+            placeholder="Re-Enter your Password"
+            value={values.confirmpassword}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={errors.confirmpassword && touched.confirmpassword && 'error'}/> 
+          <div style={{paddingTop:20}}>  
+          {errors.confirmpassword && touched.confirmpassword && (
+            <div className="input-error" >{errors.confirmpassword}</div>
           )}
           </div>
 

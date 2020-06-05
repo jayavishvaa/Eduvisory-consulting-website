@@ -6,7 +6,6 @@ export default () => {
    const state = {
         navSublist: [
             {name:'Home', href:'/',
-                // subMenu:[]
             },
             {name:'Scholarship', href:'/Scholarship',
                 subMenu:[

@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 
 
 
+
 export default class App extends Component {
 
     render() {
@@ -19,7 +20,10 @@ export default class App extends Component {
                <Link to="/exploreyourneed">EXPLORE YOUR NEED</Link>
                <Link to="/Forum">FORUM</Link>
                <Link to="/Blog">BLOG</Link>
-               <Link className="active" to="/Login">LOGIN</Link>
+               <div className="right-top">
+               <Link style={{color:"white"}} to="/Login">LOGIN</Link>
+               <Link style={{color:"white"}} to="/signup">SIGNUP</Link>
+               </div>
               </div>
              </div>
                 <Routes/>
