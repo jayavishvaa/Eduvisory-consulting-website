@@ -12,6 +12,7 @@ export default class PhoneInput extends React.Component {
     });
   };
 
+
   render() {
     return (
       <div>
@@ -23,8 +24,9 @@ export default class PhoneInput extends React.Component {
           }}
           inputStyle={{width:500}}
           placeholder="Enter Your Phone number"
-          value={this.state.phone}
           onChange={this.handleOnChange}
+          value={this.state.phone}
+          
         />
       </div>
     );

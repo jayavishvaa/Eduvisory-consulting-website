@@ -1,12 +1,13 @@
 import React from 'react'
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-import {Input,DatePicker} from 'antd';
+import {Input,DatePicker, Form} from 'antd';
 import 'antd/dist/antd.css';
 import Countrydropdown from './dropdown/countryDropdown';
 import PhoneInput from '../components/phoneInput';
 
 
+const {Item} = Form
 
 
 const ValidatedSignup = () => (
@@ -26,11 +27,11 @@ const ValidatedSignup = () => (
 
       lastname: Yup.string()
       .required('Last Name cannot be Empty'),  
-      phonenumber: Yup.number()
-      .required('Phone Number cannot be Empty'),
+      phonenumber: Yup.string()
+      .required('Phone number cannot be Empty'),
       country: Yup.string()
       .required('Country and Region cannot be Empty'),
-      dateofbirth: Yup.number()
+      dateofbirth: Yup.string()
       .required('Date of Birth cannot be Empty'),
       city: Yup.string()
       .required('City cannot be Empty'),
@@ -59,15 +60,12 @@ const ValidatedSignup = () => (
         isSubmitting,
         handleSubmit,
         errors,
-        handleBlur
+        handleBlur,
+        setFieldValue,
 
       } = props ;
       
 
-
-      function onChange(date, dateString) {
-        console.log(date, dateString);
-      }
 
 
       
@@ -143,16 +141,18 @@ const ValidatedSignup = () => (
           </div>
 
           <label htmlFor="dateofbirth">Date of Birth</label> 
+          <Item validateStatus="validating">
           <DatePicker 
             placeholder="select your Date of Birth"
             style={{width:300}}
-            onChange={onChange}
-            className={errors.dateofbirth && touched.dateofbirth && 'error'}
+            onChange={(date, dateString) => setFieldValue('dateofbirth', dateString)}
+            className={errors.dateofbirth && errors.dateofbirth && 'error' }
           />
+          </Item>
 
 
           <div style={{paddingTop:20}}>
-          {errors.dateofbirth && touched.dateofbirth && (
+          {errors.dateofbirth && errors.dateofbirth && (
             <div className="input-error" >{errors.dateofbirth}</div>
           )}
           </div>
