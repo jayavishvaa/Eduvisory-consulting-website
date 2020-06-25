@@ -70,7 +70,7 @@ const ValidatedLogin = () => (
           )}
           </div>
 
-          <button type='submit' disabled={isSubmitting} >
+          <button type='submit' style={{borderRadius:20}} disabled={isSubmitting} >
             LOGIN
           </button>
           <div className="sign-hover" style={{padding:20,fontSize:20}}>or 

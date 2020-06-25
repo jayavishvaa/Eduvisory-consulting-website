@@ -10,10 +10,12 @@ export default class Countrydropdown extends Component {
   }
  
   selectCountry (val) {
+    this.props.setFieldValue('country',val);
     this.setState({ country: val });
   }
  
   selectRegion (val) {
+    this.props.setFieldValue('city',val);
     this.setState({ region: val });
   }
  

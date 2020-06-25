@@ -8,6 +8,7 @@ export default class PhoneInput extends React.Component {
   handleOnChange = value => {
     console.log(value);
     this.setState({ phone: value }, () => {
+      this.props.setFieldValue('phonenumber',this.state.phone)
       console.log(this.state.phone);
     });
   };

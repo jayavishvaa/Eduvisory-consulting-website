@@ -120,6 +120,7 @@ const ValidatedSignup = () => (
           
           <label htmlFor="phonenumber"> phonenumber</label>
           <PhoneInput
+             setFieldValue={setFieldValue}
              className={errors.phonenumber && touched.phonenumber && 'error'}
           />
 
@@ -131,6 +132,7 @@ const ValidatedSignup = () => (
 
 
           <Countrydropdown 
+            setFieldValue={setFieldValue}
             className={errors.country && touched.country && 'error'}
             
           />
@@ -217,7 +219,7 @@ const ValidatedSignup = () => (
           )}
           </div>
 
-          <button type='submit' disabled={isSubmitting} >
+          <button type='submit' disabled={isSubmitting} style={{marginBottom:50,borderRadius:23}}>
             SIGNUP
           </button>
            
