@@ -2,11 +2,21 @@ import React, { createElement, useState } from 'react';
 import { Comment, Tooltip, Avatar } from 'antd';
 import moment from 'moment';
 import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
+import SingleComment from './SingleComment';
 
-const CatTab = () => {
+
+
+const CatTab = (props) => {
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
   const [action, setAction] = useState(null);
+  const [ pressed, setPressed ] = useState(false);
+
+
+
+  const handleClick = () => {
+    setPressed(true);
+}
 
   const like = () => {
     setLikes(1);
@@ -19,6 +29,18 @@ const CatTab = () => {
     setDislikes(1);
     setAction('disliked');
   };
+ // const displayCondition = (props) => {
+
+ //   const {onePressed, singleComment, Comment} = props;
+
+ //   if ({onePressed}) {
+ //     return {singleComment}
+ //   } else {
+ //     return {Comment}
+ //   }
+
+
+ // }
 
   const actions = [
     <span key="comment-basic-like">
@@ -37,10 +59,12 @@ const CatTab = () => {
       </Tooltip>
       <span className="comment-action">{dislikes}</span>
     </span>,
-    <span key="comment-basic-reply-to">Reply to</span>,
+    <span key="comment-basic-reply-to" onClick={handleClick}>Reply to</span>,
   ];
 
+
   return (
+    <div>
     <Comment
       actions={actions}
       avatar={
@@ -50,18 +74,22 @@ const CatTab = () => {
         />
       }
       content={
-        <p>
-          We supply a series of design principles, practical patterns and high quality design
-          resources (Sketch and Axure), to help people create their product prototypes beautifully
-          and efficiently.
-        </p>
+        <div>
+          <p>
+            {props.Comment}
+          </p>
+        </div>
       }
       datetime={
         <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
           <span>{moment().fromNow()}</span>
         </Tooltip>
+        
       }
     />
+  
+    {pressed && <div><SingleComment /></div>}
+    </div>
   );
 };
 

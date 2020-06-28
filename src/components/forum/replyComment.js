@@ -25,22 +25,20 @@ const useStyles = makeStyles((theme) => ({
 
 
 const { TextArea } = Input;
-function Comment() {
+function replyComment() {
     const classes = useStyles();
 
-    const [ Comment, setComment ] = useState("");
-    const [ finalComment, setFinalComment ] = useState("");
+    const [ replyComment, setReplyComment ] = useState("");
     const [ pressed, setPressed ] = useState(false);
     const [ touched, setTouched ] = useState(false);
 
 
     const handleChange = (e) => {
-        setComment(e.currentTarget.value)
+        setReplyComment(e.currentTarget.value)
     }
 
     const handleClick = () => {
         setPressed(true);
-        setFinalComment(Comment);
         console.log(Comment);
     }
 
@@ -56,28 +54,23 @@ function Comment() {
             <div>
             <div className={classes.root}>
       
-            {pressed && <CatTab Comment={finalComment}/>}
+            {pressed && <CatTab replyComment={replyComment}/>}
     </div>
             
             {touched && <Button onClick={replyClick}> comment ur reply</Button>}
                 
-            </div>
-            
-              <div>
-                 <TextArea
+            </div>                
+                <TextArea
                     style={{width: '100%', borderRadius: '5px'}}
                     onChange={handleChange}
-                    value={Comment}
+                    value={replyComment}
                     placeholder="Ask Your Question"
                 />
                 
                 <br/>
                 <Button onClick={handleClick} style={{width: '10%', height: '35px',marginTop:10,borderRadius:20,backgroundColor:'#03a9f4',color:'white'}} >Post</Button>
-              </div>
-                         
-               
         </div>
     )
 }
 
-export default Comment;
+export default replyComment;
