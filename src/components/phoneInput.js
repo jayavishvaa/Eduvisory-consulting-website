@@ -26,6 +26,7 @@ export default class PhoneInput extends React.Component {
 					placeholder="Enter Your Phone number"
 					onChange={this.handleOnChange}
 					value={this.state.phone}
+					country= {this.props.values.country.toLowerCase().slice(0,2)}
 				/>
 			</div>
 		);
