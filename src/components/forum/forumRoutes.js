@@ -10,6 +10,7 @@ import ClippedDrawer from '../ForumDrawer';
 import AskQuestion from './askQuestion';
 import GateSubTabs from './gateTab';
 import AerospaceEngineering from './gateTabs/AerospaceEngineering';
+import Home from './home';
 
 
 //<Route exact path={`${this.props.match.path}/:CAT`} component={CatTab}/> 
@@ -21,6 +22,7 @@ export default class ForumRoutes extends Component {
             <ClippedDrawer/>
             <div style={{marginTop:80,marginLeft:280,marginRight:80}}>
             <Switch>
+                <Route exact path='/forum/HOME' render={props => <Home {...props}/>} />
                 <Route exact path='/forum/GATE' render={props => <GateSubTabs {...props}/>} />
                 <Route exact path='/forum/GRE' render={props => <GreTab {...props}/>} /> 
                 <Route exact path='/forum/CAT' render={props => <CatTab {...props}/>} /> 

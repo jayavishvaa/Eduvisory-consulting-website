@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     {
       name: "Home",
       icon: <Home/>,
-      onClick: () => history.push('/Forum')
+      onClick: () => history.push('/Forum/HOME')
     },
     {
       name: "GATE",
