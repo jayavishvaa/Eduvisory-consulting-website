@@ -1,0 +1,35 @@
+/* For demo */
+.ant-carousel .slick-slide {
+    text-align: center;
+    height: 500px;
+    line-height: 160px;
+    background: #364d79;
+    overflow: hidden;
+    
+  }
+
+  .image1 {
+    background-repeat:no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+  
+  }
+
+  .Image1 {
+
+    background-image: url(../components/newimage1.jpg);
+
+  }
+
+  .Image2 {
+    background-image: url(../components//newimage2.png);
+  }
+
+  .Image3 {
+    background-image: url(../components//newimage3.jpg);
+  }
+
+  .Image4 {
+    background-image: url(../image4.jpg);
+  }
